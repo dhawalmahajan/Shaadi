@@ -11,13 +11,15 @@ struct ProfileCard: View {
     @State var profile: Profile?
     @ObservedObject var viewModel:CardLitsViewModel
     var body: some View {
-
-            
             VStack(alignment: .center,spacing: 10) {
+                Spacer()
                 if let image = profile?.imageUrl, let url = URL(string: image) {
                     AsyncImage(url: url)
-                        .clipShape(Circle())
-                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 100,height: 100)
+                                    .shadow(radius: 5)
+                } else {
+                    // Placeholder while loading
+                    ProgressView()
                 }
                 Text("\($profile.wrappedValue?.name ?? "")")
                     .font(.headline)
@@ -28,27 +30,28 @@ struct ProfileCard: View {
                     .foregroundColor(.gray)
                     .padding(.bottom, 8)
                 
+                Spacer()
                 HStack(spacing: 30) {
                     Button(action: rejectProfile) {
                         Image(systemName: "person.fill.xmark")
                             .font(.subheadline)
-                            .foregroundColor($profile.wrappedValue?.isLiked ?? false ? .red : .black)
+                            .foregroundColor($profile.wrappedValue?.isLiked ?? false ? .black : .white)
                             .padding()
-                            .background(Color.white)
-                            .clipShape(Circle())
+                            .background(Circle().fill(Color.red))
+                            
                         
                     }
                     
                     Button(action: selectProfile) {
                         Image(systemName: "checkmark")
                             .font(.subheadline)
-                            .foregroundColor($profile.wrappedValue?.isLiked ?? false ? .green :.black)
+                            .foregroundColor($profile.wrappedValue?.isLiked ?? false ? .green :.white)
                             .padding()
-                            .background(Color.white)
-                            .clipShape(Circle())
+                            .background(Circle().fill(Color.green))
+                            
                     }
                 }
-                .padding(.top, 16)
+                .padding(16)
 //                if profile.isLiked != true && profile.isLiked != false {
 //                   
 //                } else {
@@ -60,11 +63,12 @@ struct ProfileCard: View {
 
             }
             .frame(maxWidth: .infinity)
-            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+//            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
             .background(Color.white)
             .cornerRadius(16)
             .shadow(radius: 5)
-            .padding(.horizontal, 20)
+            .padding(16)
+//            .padding(.horizontal, 20)
         }
     
     
