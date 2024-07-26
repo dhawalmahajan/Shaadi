@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 class ProfileWebService {
     private let url: String?
     init(url: String?) {

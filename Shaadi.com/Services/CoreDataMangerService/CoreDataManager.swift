@@ -20,7 +20,7 @@ class CoreDataManager {
            }
        }
     
-    func fetch<T: NSManagedObject>(_ objectType: T.Type) -> [T] {
+   private  func fetch<T: NSManagedObject>(_ objectType: T.Type) -> [T] {
             let entityName = String(describing: objectType)
             let fetchRequest = NSFetchRequest<T>(entityName: entityName)
             
@@ -33,24 +33,12 @@ class CoreDataManager {
             }
         }
     
-    func updateProfile(id: String, isLiked: Bool) -> Profile? {
-            let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-
-            do {
-                let profiles = try PersistenceController.shared.viewContext.fetch(fetchRequest)
-                if let profile = profiles.first {
-                    profile.isLiked = isLiked
-                    saveContext()
-                    return profile
-                }
-            } catch {
-                print("Failed to fetch profile: \(error)")
-            }
-        return nil
+    func fetchProfiles() -> [Profile] {
+        return fetch(Profile.self)
         }
+  
     
-    func insertProfile(id: String, name: String, imageUrl:String, age: Int16, isLiked: Bool) -> Profile{
+    func insertProfile(id: String, name: String, imageUrl:String, age: Int16, isLiked: Bool) {
         let profile = Profile(context: PersistenceController.shared.viewContext)
            profile.id = id
            profile.name = name
@@ -58,6 +46,6 @@ class CoreDataManager {
         profile.imageUrl = imageUrl
            profile.isLiked = isLiked
            saveContext()
-        return profile
+       
        }
 }
