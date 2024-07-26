@@ -17,6 +17,7 @@
 		0288E3142C50C85900B6B721 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3132C50C85900B6B721 /* UserInfo.swift */; };
 		0288E3162C50C9FE00B6B721 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3152C50C9FE00B6B721 /* ProfileCard.swift */; };
 		0288E3182C50D05E00B6B721 /* CardLitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */; };
+		02EEF2832C538DEA008239E3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EEF2822C538DEA008239E3 /* WebService.swift */; };
 		02F107FF2C50F1DB00509F6C /* ProfileWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */; };
 		02F108012C50F9A700509F6C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F108002C50F9A700509F6C /* Constant.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		0288E3132C50C85900B6B721 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		0288E3152C50C9FE00B6B721 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLitsViewModel.swift; sourceTree = "<group>"; };
+		02EEF2822C538DEA008239E3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWebService.swift; sourceTree = "<group>"; };
 		02F108002C50F9A700509F6C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 			children = (
 				0226772A2C52646A00F2190E /* CoreDataMangerService */,
 				02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */,
+				02EEF2822C538DEA008239E3 /* WebService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EEF2832C538DEA008239E3 /* WebService.swift in Sources */,
 				0288E3092C50C46200B6B721 /* Persistence.swift in Sources */,
 				0288E3022C50C46100B6B721 /* CardListView.swift in Sources */,
 				02F108012C50F9A700509F6C /* Constant.swift in Sources */,

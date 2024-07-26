@@ -9,9 +9,11 @@ import SwiftUI
 import CoreData
 
 struct CardListView: View {
-    @StateObject  var viewModel: CardLitsViewModel = CardLitsViewModel(webService: .init(url: kWEB_URL), coreDataManager: .init())
-    @Environment(\.managedObjectContext) private var viewContext
-
+    @StateObject  var viewModel: CardLitsViewModel = CardLitsViewModel()
+//    @Environment(\.managedObjectContext) private var viewContext
+    init() {
+        
+    }
 
     var body: some View {
         NavigationView {
@@ -31,8 +33,6 @@ struct CardListView: View {
             .listStyle(PlainListStyle())
             
            
-        }.task {
-          await  viewModel.fetchWebService()
         }
     }
 
@@ -46,5 +46,5 @@ private let itemFormatter: DateFormatter = {
 }()
 
 #Preview {
-    CardListView().environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+    CardListView()
 }

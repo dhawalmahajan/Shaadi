@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 class ProfileWebService {
     private let url: String?
     init(url: String?) {
@@ -16,6 +17,7 @@ class ProfileWebService {
         do {
            let (data,_) = try  await URLSession.shared.data(from: url)
             let info = try JSONDecoder().decode(UserInfo.self, from: data)
+            
             return .success(info)
         } catch let error  {
             debugPrint(error)

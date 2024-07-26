@@ -6,31 +6,71 @@
 //
 
 import Foundation
+import CoreData
+
 
 @MainActor
 class CardLitsViewModel: ObservableObject {
-    private let webService: ProfileWebService
-    private let coreDataManager: CoreDataManager
+    
+    private let coreDataManager: CoreDataManager = CoreDataManager()
     @Published var user: [Profile]? = []
     
-    init(webService: ProfileWebService, coreDataManager: CoreDataManager) {
-        self.webService = webService
-        self.coreDataManager = coreDataManager
+    init() {
+        
+        fetchCardProfile()
+        
     }
     
-    func fetchWebService() async  {
-        switch  await webService.fetchProfiles() {
-        case .success(let info):
-            let profile = info?.results.compactMap {
-                coreDataManager.insertProfile(id: $0.login.uuid, name: $0.name.first, imageUrl: $0.picture.medium, age: Int16($0.dob.age), isLiked: false)
+    
+    private func fetchCardProfile() {
+        WebService.shared.fetchCards {  [weak self] result in
+            switch result {
+            case .success(let cards):
+                var c:[Profile] = []
+                for i in cards.results {
+                    let profile = Profile(context: PersistenceController.shared.viewContext)
+                    profile.id = i.login.uuid
+                    profile.name = i.name.first
+                    profile.age = Int16(i.dob.age)
+                    profile.imageUrl = i.picture.medium
+                    profile.isLiked = false
+                    profile.isSelected = false
+                    profile.address = i.location.city
+                    c.append(profile)
+                    self?.coreDataManager.saveContext()
+                }
+                self?.saveCards(cards: c)
+                DispatchQueue.main.async {
+                    self?.fetchCardsFromCoreData()
+                }
+            case .failure(let error):
+                print("Failed to fetch cards: \(error)")
             }
-            user = profile
-        case .failure(let error):
-            debugPrint(error)
         }
     }
-    
     func updateProfile(id: String, isLiked: Bool) -> Profile? {
         return coreDataManager.updateProfile(id: id, isLiked: isLiked)
+    }
+    
+    private func saveCards(cards: [Profile]) {
+        WebService.shared.saveCardsToCoreData(cards: cards, context: PersistenceController.shared.viewContext)
+    }
+    
+    func updateCardStatus(for card: Profile, isLiked: Bool) {
+        card.isLiked = isLiked
+        card.isSelected = true
+        coreDataManager.saveContext()
+        DispatchQueue.main.async {[weak self] in
+            self?.fetchCardsFromCoreData() // Refresh the cards array
         }
+    }
+    private func fetchCardsFromCoreData() {
+        let request: NSFetchRequest<Profile> = Profile.fetchRequest()
+        
+        do {
+            self.user = try PersistenceController.shared.viewContext.fetch(request)
+        } catch {
+            print("Failed to fetch cards from Core Data: \(error)")
+        }
+    }
 }
