@@ -36,22 +36,7 @@ class CoreDataManager {
     func fetchProfiles() -> [Profile] {
         return fetch(Profile.self)
         }
-    func updateProfile(id: String, isLiked: Bool) -> Profile? {
-            let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-
-            do {
-                let profiles = try PersistenceController.shared.viewContext.fetch(fetchRequest)
-                if let profile = profiles.first {
-                    profile.isLiked = isLiked
-                    saveContext()
-                    return profile
-                }
-            } catch {
-                print("Failed to fetch profile: \(error)")
-            }
-        return nil
-        }
+  
     
     func insertProfile(id: String, name: String, imageUrl:String, age: Int16, isLiked: Bool) {
         let profile = Profile(context: PersistenceController.shared.viewContext)

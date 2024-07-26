@@ -13,7 +13,7 @@ import CoreData
 class CardLitsViewModel: ObservableObject {
     
     private let coreDataManager: CoreDataManager = CoreDataManager()
-    @Published var user: [Profile]? = []
+    @Published var user: [Profile] = []
     
     init() {
         
@@ -48,9 +48,7 @@ class CardLitsViewModel: ObservableObject {
             }
         }
     }
-    func updateProfile(id: String, isLiked: Bool) -> Profile? {
-        return coreDataManager.updateProfile(id: id, isLiked: isLiked)
-    }
+   
     
     private func saveCards(cards: [Profile]) {
         WebService.shared.saveCardsToCoreData(cards: cards, context: PersistenceController.shared.viewContext)
