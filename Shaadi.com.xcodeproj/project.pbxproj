@@ -57,6 +57,7 @@
 		022677272C52643C00F2190E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */,
 				02C84CBE2D6CD721004EAB9A /* CachedImageView.swift */,
 				02C84CB42D6CC198004EAB9A /* ProfileListView.swift */,
 				02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */,
@@ -75,7 +76,6 @@
 		022677292C52645800F2190E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */,
 				02C84CBA2D6CD6D9004EAB9A /* ImageCache.swift */,
 				02C84CB82D6CD485004EAB9A /* Web Service */,
 				0226772A2C52646A00F2190E /* CoreDataMangerService */,
