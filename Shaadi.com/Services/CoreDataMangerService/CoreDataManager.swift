@@ -7,45 +7,38 @@
 
 import Foundation
 import CoreData
+import CoreData
+
 class CoreDataManager {
-    func saveContext() {
-        let context = PersistenceController.shared.viewContext
-           if context.hasChanges {
-               do {
-                   try context.save()
-               } catch {
-                   let nserror = error as NSError
-                   fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-               }
-           }
-       }
-    
-   private  func fetch<T: NSManagedObject>(_ objectType: T.Type) -> [T] {
-            let entityName = String(describing: objectType)
-            let fetchRequest = NSFetchRequest<T>(entityName: entityName)
-            
-            do {
-                let fetchedObjects = try PersistenceController.shared.viewContext.fetch(fetchRequest)
-                return fetchedObjects
-            } catch {
-                print("Failed to fetch objects: \(error)")
-                return []
+    static let shared = CoreDataManager()
+    let container: NSPersistentContainer
+
+    var viewContext: NSManagedObjectContext {
+        return container.viewContext
+    }
+
+    private init() {
+        container = NSPersistentContainer(name: "Shaadi_com") // Replace with your actual model name
+        container.loadPersistentStores { storeDescription , error in
+            if let error = error {
+                fatalError("Failed to load Core Data stack: \(error)")
+            } else  if let pathUrl = storeDescription.url {
+                print("Core Data DB Path: \(pathUrl.path)")
+            } else {
+                print("Could not find Core Data database path")
             }
         }
-    
-    func fetchProfiles() -> [Profile] {
-        return fetch(Profile.self)
+        container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+
+    func saveContext() {
+        let context = viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save Core Data: \(error)")
+            }
         }
-  
-    
-    func insertProfile(id: String, name: String, imageUrl:String, age: Int16, isLiked: Bool) {
-        let profile = Profile(context: PersistenceController.shared.viewContext)
-           profile.id = id
-           profile.name = name
-           profile.age = age
-        profile.imageUrl = imageUrl
-           profile.isLiked = isLiked
-           saveContext()
-       
-       }
+    }
 }

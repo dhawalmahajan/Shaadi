@@ -9,13 +9,13 @@ import SwiftUI
 import CoreData
 
 struct CardListView: View {
-    @StateObject  var viewModel: CardLitsViewModel = CardLitsViewModel()
+    @StateObject var viewModel: ProfileViewModel = ProfileViewModel()
     
     var body: some View {
         NavigationView {
             
             List {
-                ForEach(viewModel.user) { item in
+                ForEach(viewModel.profiles) { item in
                     ProfileCard(profile: item, viewModel: viewModel)
                         .listRowBackground(Color.clear) // Disable row selection highlight
                         .listRowSeparator(.hidden) // Remove separators

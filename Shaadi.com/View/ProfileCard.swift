@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileCard: View {
     @State var profile: Profile
-    @ObservedObject var viewModel:CardLitsViewModel
+    @ObservedObject var viewModel:ProfileViewModel
     
     var body: some View {
         return  VStack(alignment: .center,spacing: 10) {
@@ -46,7 +46,8 @@ struct ProfileCard: View {
                 
                 HStack(spacing: 30) {
                     Button(action: {
-                        viewModel.updateCardStatus(for: profile, isLiked: false)
+                        viewModel.updateProfile(profile, isLiked: false, isSelected: false)
+//                        viewModel.updateCardStatus(for: profile, isLiked: false)
                     }) {
                         Image(systemName: "person.fill.xmark")
                             .font(.subheadline)
@@ -56,7 +57,8 @@ struct ProfileCard: View {
                     }
                     Spacer()
                     Button(action: {
-                        viewModel.updateCardStatus(for: profile, isLiked: true)
+                        viewModel.updateProfile(profile, isLiked: true, isSelected: false)
+//                        viewModel.updateCardStatus(for: profile, isLiked: true)
                     }) {
                         Image(systemName: "checkmark")
                             .font(.subheadline)

@@ -13,7 +13,7 @@ struct Shaadi_comApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CardListView()
+            ProfileListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -9,66 +9,55 @@ import Foundation
 import CoreData
 
 
-@MainActor
-class CardLitsViewModel: ObservableObject {
-    
-    private let coreDataManager: CoreDataManager = CoreDataManager()
-    @Published var user: [Profile] = []
-    
+class ProfileViewModel: ObservableObject {
+    private let repository = ProfileRepository()
+    private let webService = ProfileWebService(url: kWEB_URL)
+    @Published var profiles: [Profile] = []
+
     init() {
-        
-        fetchCardProfile()
-        
+        fetchProfilesFromDB()
     }
-    
-    
-    private func fetchCardProfile() {
-        WebService.shared.fetchCards {  [weak self] result in
-            switch result {
-            case .success(let cards):
-                var c:[Profile] = []
-                for i in cards.results {
-                    let profile = Profile(context: PersistenceController.shared.viewContext)
-                    profile.id = i.login.uuid
-                    profile.name = i.name.first
-                    profile.age = Int16(i.dob.age)
-                    profile.imageUrl = i.picture.medium
-                    profile.isLiked = false
-                    profile.isSelected = false
-                    profile.address = i.location.city
-                    c.append(profile)
-                    self?.coreDataManager.saveContext()
-                }
-                self?.saveCards(cards: c)
-                DispatchQueue.main.async {
-                    self?.fetchCardsFromCoreData()
-                }
-            case .failure(let error):
-                print("Failed to fetch cards: \(error)")
+
+    // ✅ Fetch Profiles
+    func fetchProfilesFromDB() {
+        DispatchQueue.main.async {
+            self.profiles = self.repository.fetchProfiles()
+        }
+    }
+    func fetchProfilesFromAPI() async {
+        let result = await webService.fetchProfiles()
+        switch result {
+        case .success(let userInfo):
+            if let userInfo = userInfo {
+                repository.insertProfiles(from: userInfo) {
+                    self.fetchProfilesFromDB() // Refresh UI
+                } // Save data to Core Data
             }
+        case .failure(let error):
+            print("Failed to fetch profiles: \(error)")
         }
     }
-   
-    
-    private func saveCards(cards: [Profile]) {
-        WebService.shared.saveCardsToCoreData(cards: cards, context: PersistenceController.shared.viewContext)
+    // ✅ Add New Profile
+    func addProfile(id: String, name: String, age: Int16, imageUrl: String, isLiked: Bool, isSelected: Bool, address: String) {
+        repository.createProfile(id: id, name: name, age: age, imageUrl: imageUrl, isLiked: isLiked, isSelected: isSelected, address: address)
+        fetchProfilesFromDB() // Refresh UI
     }
-    
-    func updateCardStatus(for card: Profile, isLiked: Bool) {
-        card.isLiked = isLiked
-        card.isSelected = true
-        coreDataManager.saveContext()
-        DispatchQueue.main.async {[weak self] in
-            self?.fetchCardsFromCoreData() // Refresh the cards array
-        }
+
+    // ✅ Update Profile
+    func updateProfile(_ profile: Profile, isLiked: Bool, isSelected: Bool) {
+        repository.updateProfile(profile: profile, isLiked: isLiked, isSelected: isSelected)
+        fetchProfilesFromDB()
     }
-    private func fetchCardsFromCoreData() {
-        let request: NSFetchRequest<Profile> = Profile.fetchRequest()
-        
-        do {
-            self.user = try PersistenceController.shared.viewContext.fetch(request)
-        } catch {
-            print("Failed to fetch cards from Core Data: \(error)")
-        }
+
+    // ✅ Delete Profile
+    func deleteProfile(_ profile: Profile) {
+        repository.deleteProfile(profile: profile)
+        fetchProfilesFromDB()
+    }
+
+    // ✅ Delete All Profiles
+    func deleteAllProfiles() {
+        repository.deleteAllProfiles()
+        fetchProfilesFromDB()
     }
 }
