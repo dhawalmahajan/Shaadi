@@ -7,7 +7,10 @@
 
 import Foundation
 import CoreData
-class ProfileWebService {
+protocol ProfileServiceProtocol {
+    func fetchProfiles() async -> Result<UserInfo?, Error>
+}
+class ProfileWebService:ProfileServiceProtocol {
     private let url: String?
     init(url: String?) {
         self.url = url

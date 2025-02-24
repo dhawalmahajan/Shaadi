@@ -6,8 +6,16 @@
 //
 
 import CoreData
+protocol ProfileRepositoryProtocol {
+    func createProfile(id: String, name: String, age: Int16, imageUrl: String, isLiked: Bool, isSelected: Bool, address: String)
+    func insertProfiles(from userInfo: UserInfo, completion: (() -> Void)?)
+    func fetchProfiles() -> [Profile]
+    func updateProfile(profile: Profile, isLiked: Bool, isSelected: Bool)
+    func deleteProfile(profile: Profile)
+    func deleteAllProfiles()
+}
 
-class ProfileRepository {
+class ProfileRepository:ProfileRepositoryProtocol {
     private let context: NSManagedObjectContext
 
     init(context: NSManagedObjectContext = CoreDataManager.shared.viewContext) {

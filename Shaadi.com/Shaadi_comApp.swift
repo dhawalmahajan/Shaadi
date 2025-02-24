@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct Shaadi_comApp: App {
-    let persistenceController = PersistenceController.shared
+    let coreDataManager = CoreDataManager.shared
 
     var body: some Scene {
         WindowGroup {
             ProfileListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, coreDataManager.container.viewContext)
         }
     }
 }

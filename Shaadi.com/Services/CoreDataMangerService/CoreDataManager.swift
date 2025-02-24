@@ -18,7 +18,7 @@ class CoreDataManager {
     }
 
     private init() {
-        container = NSPersistentContainer(name: "Shaadi_com") // Replace with your actual model name
+        container = NSPersistentContainer(name: kCONTAINER_NAME) // Replace with your actual model name
         container.loadPersistentStores { storeDescription , error in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")

@@ -7,3 +7,4 @@
 
 import Foundation
 let kWEB_URL = "https://randomuser.me/api/?results=10"
+let kCONTAINER_NAME = "Shaadi_com"

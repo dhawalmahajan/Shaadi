@@ -8,8 +8,17 @@
 import Foundation
 import CoreData
 
-
-class ProfileViewModel: ObservableObject {
+protocol ProfileViewModelProtocol: ObservableObject {
+    var profiles: [Profile] { get set }
+    
+    func fetchProfilesFromDB()
+    func fetchProfilesFromAPI() async
+    func addProfile(id: String, name: String, age: Int16, imageUrl: String, isLiked: Bool, isSelected: Bool, address: String)
+    func updateProfile(_ profile: Profile, isLiked: Bool, isSelected: Bool)
+    func deleteProfile(_ profile: Profile)
+    func deleteAllProfiles()
+}
+class ProfileViewModel: ProfileViewModelProtocol {
     private let repository = ProfileRepository()
     private let webService = ProfileWebService(url: kWEB_URL)
     @Published var profiles: [Profile] = []

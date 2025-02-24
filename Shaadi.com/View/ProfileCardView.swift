@@ -13,11 +13,7 @@ struct ProfileCardView: View {
 
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: profile.imageUrl ?? "")) { image in
-                image.resizable().scaledToFill()
-            } placeholder: {
-                Color.gray
-            }
+            CachedImageView(url: profile.imageUrl ?? "")
             .frame(width: 120, height: 120)
             .clipShape(RoundedRectangle(cornerRadius: 10))
 

@@ -22,7 +22,7 @@ struct ProfileListView: View {
                 .padding()
             }
             .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
-            .navigationTitle("Profiles")
+//            .navigationTitle("Profiles")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Clear All") {

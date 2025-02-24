@@ -11,14 +11,15 @@
 		0288E3002C50C46100B6B721 /* Shaadi_comApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */; };
 		0288E3042C50C46200B6B721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0288E3032C50C46200B6B721 /* Assets.xcassets */; };
 		0288E3072C50C46200B6B721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0288E3062C50C46200B6B721 /* Preview Assets.xcassets */; };
-		0288E3092C50C46200B6B721 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3082C50C46200B6B721 /* Persistence.swift */; };
 		0288E30C2C50C46200B6B721 /* Shaadi_com.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0288E30A2C50C46200B6B721 /* Shaadi_com.xcdatamodeld */; };
 		0288E3142C50C85900B6B721 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3132C50C85900B6B721 /* UserInfo.swift */; };
-		0288E3182C50D05E00B6B721 /* CardLitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */; };
+		0288E3182C50D05E00B6B721 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3172C50D05E00B6B721 /* ProfileViewModel.swift */; };
 		02C84CB12D6CC024004EAB9A /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CB02D6CC021004EAB9A /* ProfileRepository.swift */; };
 		02C84CB52D6CC198004EAB9A /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CB42D6CC198004EAB9A /* ProfileListView.swift */; };
 		02C84CB72D6CD2C5004EAB9A /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */; };
-		02EEF2832C538DEA008239E3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EEF2822C538DEA008239E3 /* WebService.swift */; };
+		02C84CBB2D6CD6D9004EAB9A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CBA2D6CD6D9004EAB9A /* ImageCache.swift */; };
+		02C84CBD2D6CD6FB004EAB9A /* CachedImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */; };
+		02C84CBF2D6CD721004EAB9A /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CBE2D6CD721004EAB9A /* CachedImageView.swift */; };
 		02F107FF2C50F1DB00509F6C /* ProfileWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */; };
 		02F108012C50F9A700509F6C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F108002C50F9A700509F6C /* Constant.swift */; };
 /* End PBXBuildFile section */
@@ -29,14 +30,15 @@
 		0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shaadi_comApp.swift; sourceTree = "<group>"; };
 		0288E3032C50C46200B6B721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0288E3062C50C46200B6B721 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0288E3082C50C46200B6B721 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0288E30B2C50C46200B6B721 /* Shaadi_com.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shaadi_com.xcdatamodel; sourceTree = "<group>"; };
 		0288E3132C50C85900B6B721 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLitsViewModel.swift; sourceTree = "<group>"; };
+		0288E3172C50D05E00B6B721 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		02C84CB02D6CC021004EAB9A /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		02C84CB42D6CC198004EAB9A /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListView.swift; sourceTree = "<group>"; };
 		02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
-		02EEF2822C538DEA008239E3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		02C84CBA2D6CD6D9004EAB9A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageLoader.swift; sourceTree = "<group>"; };
+		02C84CBE2D6CD721004EAB9A /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWebService.swift; sourceTree = "<group>"; };
 		02F108002C50F9A700509F6C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +57,7 @@
 		022677272C52643C00F2190E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02C84CBE2D6CD721004EAB9A /* CachedImageView.swift */,
 				02C84CB42D6CC198004EAB9A /* ProfileListView.swift */,
 				02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */,
 			);
@@ -64,7 +67,7 @@
 		022677282C52644C00F2190E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */,
+				0288E3172C50D05E00B6B721 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -72,10 +75,10 @@
 		022677292C52645800F2190E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				02C84CB02D6CC021004EAB9A /* ProfileRepository.swift */,
+				02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */,
+				02C84CBA2D6CD6D9004EAB9A /* ImageCache.swift */,
+				02C84CB82D6CD485004EAB9A /* Web Service */,
 				0226772A2C52646A00F2190E /* CoreDataMangerService */,
-				02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */,
-				02EEF2822C538DEA008239E3 /* WebService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -83,7 +86,6 @@
 		0226772A2C52646A00F2190E /* CoreDataMangerService */ = {
 			isa = PBXGroup;
 			children = (
-				0288E3082C50C46200B6B721 /* Persistence.swift */,
 				0226772B2C52648B00F2190E /* CoreDataManager.swift */,
 			);
 			path = CoreDataMangerService;
@@ -108,6 +110,7 @@
 		0288E2FE2C50C46100B6B721 /* Shaadi.com */ = {
 			isa = PBXGroup;
 			children = (
+				02C84CB92D6CD494004EAB9A /* Repository */,
 				022677292C52645800F2190E /* Services */,
 				022677282C52644C00F2190E /* ViewModel */,
 				022677272C52643C00F2190E /* View */,
@@ -135,6 +138,22 @@
 				0288E3132C50C85900B6B721 /* UserInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		02C84CB82D6CD485004EAB9A /* Web Service */ = {
+			isa = PBXGroup;
+			children = (
+				02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */,
+			);
+			path = "Web Service";
+			sourceTree = "<group>";
+		};
+		02C84CB92D6CD494004EAB9A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				02C84CB02D6CC021004EAB9A /* ProfileRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,15 +226,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02EEF2832C538DEA008239E3 /* WebService.swift in Sources */,
-				0288E3092C50C46200B6B721 /* Persistence.swift in Sources */,
+				02C84CBD2D6CD6FB004EAB9A /* CachedImageLoader.swift in Sources */,
+				02C84CBB2D6CD6D9004EAB9A /* ImageCache.swift in Sources */,
 				02C84CB12D6CC024004EAB9A /* ProfileRepository.swift in Sources */,
 				02F108012C50F9A700509F6C /* Constant.swift in Sources */,
 				02F107FF2C50F1DB00509F6C /* ProfileWebService.swift in Sources */,
 				0288E3002C50C46100B6B721 /* Shaadi_comApp.swift in Sources */,
 				0288E3142C50C85900B6B721 /* UserInfo.swift in Sources */,
-				0288E3182C50D05E00B6B721 /* CardLitsViewModel.swift in Sources */,
+				0288E3182C50D05E00B6B721 /* ProfileViewModel.swift in Sources */,
 				0288E30C2C50C46200B6B721 /* Shaadi_com.xcdatamodeld in Sources */,
+				02C84CBF2D6CD721004EAB9A /* CachedImageView.swift in Sources */,
 				0226772C2C52648B00F2190E /* CoreDataManager.swift in Sources */,
 				02C84CB72D6CD2C5004EAB9A /* ProfileCardView.swift in Sources */,
 				02C84CB52D6CC198004EAB9A /* ProfileListView.swift in Sources */,
