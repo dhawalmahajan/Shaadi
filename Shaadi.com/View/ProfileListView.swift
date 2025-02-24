@@ -5,41 +5,23 @@ struct ProfileListView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.profiles, id: \.id) { profile in
-                    HStack {
-                        AsyncImage(url: URL(string: profile.imageUrl ?? "")) { image in
-                            image.resizable().scaledToFit()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
+            ScrollView {
+                VStack {
+                    Text("Profile Matches")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
 
-                        VStack(alignment: .leading) {
-                            Text(profile.name ?? "Unknown")
-                                .font(.headline)
-                            Text("Age: \(profile.age)")
-                                .font(.subheadline)
-                        }
-
-                        Spacer()
-
-                        Button(action: {
-                            viewModel.updateProfile(profile, isLiked: !profile.isLiked, isSelected: profile.isSelected)
-                        }) {
-                            Image(systemName: profile.isLiked ? "heart.fill" : "heart")
-                                .foregroundColor(.red)
+                    LazyVStack {
+                        ForEach(viewModel.profiles, id: \.id) { profile in
+                            ProfileCardView(profile: profile, viewModel: viewModel)
                         }
                     }
                 }
-                .onDelete { indexSet in
-                    indexSet.forEach { index in
-                        let profile = viewModel.profiles[index]
-                        viewModel.deleteProfile(profile)
-                    }
-                }
+                .padding()
             }
+            .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
             .navigationTitle("Profiles")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -58,3 +40,4 @@ struct ProfileListView: View {
         }
     }
 }
+

@@ -9,16 +9,15 @@
 /* Begin PBXBuildFile section */
 		0226772C2C52648B00F2190E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226772B2C52648B00F2190E /* CoreDataManager.swift */; };
 		0288E3002C50C46100B6B721 /* Shaadi_comApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */; };
-		0288E3022C50C46100B6B721 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3012C50C46100B6B721 /* CardListView.swift */; };
 		0288E3042C50C46200B6B721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0288E3032C50C46200B6B721 /* Assets.xcassets */; };
 		0288E3072C50C46200B6B721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0288E3062C50C46200B6B721 /* Preview Assets.xcassets */; };
 		0288E3092C50C46200B6B721 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3082C50C46200B6B721 /* Persistence.swift */; };
 		0288E30C2C50C46200B6B721 /* Shaadi_com.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0288E30A2C50C46200B6B721 /* Shaadi_com.xcdatamodeld */; };
 		0288E3142C50C85900B6B721 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3132C50C85900B6B721 /* UserInfo.swift */; };
-		0288E3162C50C9FE00B6B721 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3152C50C9FE00B6B721 /* ProfileCard.swift */; };
 		0288E3182C50D05E00B6B721 /* CardLitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */; };
 		02C84CB12D6CC024004EAB9A /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CB02D6CC021004EAB9A /* ProfileRepository.swift */; };
 		02C84CB52D6CC198004EAB9A /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CB42D6CC198004EAB9A /* ProfileListView.swift */; };
+		02C84CB72D6CD2C5004EAB9A /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */; };
 		02EEF2832C538DEA008239E3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EEF2822C538DEA008239E3 /* WebService.swift */; };
 		02F107FF2C50F1DB00509F6C /* ProfileWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */; };
 		02F108012C50F9A700509F6C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F108002C50F9A700509F6C /* Constant.swift */; };
@@ -28,16 +27,15 @@
 		0226772B2C52648B00F2190E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0288E2FC2C50C46100B6B721 /* Shaadi.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaadi.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shaadi_comApp.swift; sourceTree = "<group>"; };
-		0288E3012C50C46100B6B721 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		0288E3032C50C46200B6B721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0288E3062C50C46200B6B721 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0288E3082C50C46200B6B721 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0288E30B2C50C46200B6B721 /* Shaadi_com.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shaadi_com.xcdatamodel; sourceTree = "<group>"; };
 		0288E3132C50C85900B6B721 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		0288E3152C50C9FE00B6B721 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		0288E3172C50D05E00B6B721 /* CardLitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLitsViewModel.swift; sourceTree = "<group>"; };
 		02C84CB02D6CC021004EAB9A /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		02C84CB42D6CC198004EAB9A /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListView.swift; sourceTree = "<group>"; };
+		02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		02EEF2822C538DEA008239E3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		02F107FE2C50F1DB00509F6C /* ProfileWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWebService.swift; sourceTree = "<group>"; };
 		02F108002C50F9A700509F6C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -57,9 +55,8 @@
 		022677272C52643C00F2190E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0288E3012C50C46100B6B721 /* CardListView.swift */,
-				0288E3152C50C9FE00B6B721 /* ProfileCard.swift */,
 				02C84CB42D6CC198004EAB9A /* ProfileListView.swift */,
+				02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,7 +209,6 @@
 			files = (
 				02EEF2832C538DEA008239E3 /* WebService.swift in Sources */,
 				0288E3092C50C46200B6B721 /* Persistence.swift in Sources */,
-				0288E3022C50C46100B6B721 /* CardListView.swift in Sources */,
 				02C84CB12D6CC024004EAB9A /* ProfileRepository.swift in Sources */,
 				02F108012C50F9A700509F6C /* Constant.swift in Sources */,
 				02F107FF2C50F1DB00509F6C /* ProfileWebService.swift in Sources */,
@@ -221,7 +217,7 @@
 				0288E3182C50D05E00B6B721 /* CardLitsViewModel.swift in Sources */,
 				0288E30C2C50C46200B6B721 /* Shaadi_com.xcdatamodeld in Sources */,
 				0226772C2C52648B00F2190E /* CoreDataManager.swift in Sources */,
-				0288E3162C50C9FE00B6B721 /* ProfileCard.swift in Sources */,
+				02C84CB72D6CD2C5004EAB9A /* ProfileCardView.swift in Sources */,
 				02C84CB52D6CC198004EAB9A /* ProfileListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
