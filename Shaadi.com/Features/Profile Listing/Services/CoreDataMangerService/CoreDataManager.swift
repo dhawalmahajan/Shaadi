@@ -21,11 +21,11 @@ class CoreDataManager {
         container = NSPersistentContainer(name: kCONTAINER_NAME) // Replace with your actual model name
         container.loadPersistentStores { storeDescription , error in
             if let error = error {
-                fatalError("Failed to load Core Data stack: \(error)")
+                debugPrint("Failed to load Core Data stack: \(error)")
             } else  if let pathUrl = storeDescription.url {
-                print("Core Data DB Path: \(pathUrl.path)")
+                debugPrint("Core Data DB Path: \(pathUrl.path)")
             } else {
-                print("Could not find Core Data database path")
+                debugPrint("Could not find Core Data database path")
             }
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
@@ -37,7 +37,7 @@ class CoreDataManager {
             do {
                 try context.save()
             } catch {
-                print("Failed to save Core Data: \(error)")
+                debugPrint("Failed to save Core Data: \(error)")
             }
         }
     }
