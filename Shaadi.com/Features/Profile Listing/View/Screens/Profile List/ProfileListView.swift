@@ -14,25 +14,35 @@ struct ProfileListView: View {
                         .padding(.horizontal)
 
                     LazyVStack {
-                        ForEach(viewModel.profiles, id: \.id) { profile in
-                            ProfileCardView(profile: profile, viewModel: viewModel)
+                        ForEach(viewModel.profiles.indices, id: \.self) { index in
+                            if index < viewModel.profiles.count {
+                                let profile = viewModel.profiles[index]
+                                ProfileCardView(profile: profile, viewModel: viewModel)
+                                    .onAppear {
+                                        if index == viewModel.profiles.count - 1 {
+                                            Task {
+                                                await viewModel.fetchProfilesFromAPI()
+                                            }
+                                        }
+                                    }
+                            }
                         }
                     }
                 }
                 .padding()
             }
             .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
-//            .navigationTitle("Profiles")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Clear All") {
                         viewModel.deleteAllProfiles()
+                        viewModel.fetchProfilesFromDB()
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Refresh") {
                         Task {
-                            await viewModel.fetchProfilesFromAPI()
+                            await viewModel.fetchProfilesFromAPI(reset: true)
                         }
                     }
                 }
