@@ -57,10 +57,8 @@
 		022677272C52643C00F2190E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */,
-				02C84CBE2D6CD721004EAB9A /* CachedImageView.swift */,
-				02C84CB42D6CC198004EAB9A /* ProfileListView.swift */,
-				02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */,
+				024D68E32D7029EE00C95021 /* Screens */,
+				024D68E22D7029E100C95021 /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -91,6 +89,60 @@
 			path = CoreDataMangerService;
 			sourceTree = "<group>";
 		};
+		024D68E22D7029E100C95021 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				02C84CBC2D6CD6FB004EAB9A /* CachedImageLoader.swift */,
+				02C84CBE2D6CD721004EAB9A /* CachedImageView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		024D68E32D7029EE00C95021 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				024D68E42D7029F900C95021 /* Profile List */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		024D68E42D7029F900C95021 /* Profile List */ = {
+			isa = PBXGroup;
+			children = (
+				02C84CB42D6CC198004EAB9A /* ProfileListView.swift */,
+				02C84CB62D6CD2C5004EAB9A /* ProfileCardView.swift */,
+			);
+			path = "Profile List";
+			sourceTree = "<group>";
+		};
+		024D68E52D702A1800C95021 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				024D68E62D702A2300C95021 /* Profile Listing */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		024D68E62D702A2300C95021 /* Profile Listing */ = {
+			isa = PBXGroup;
+			children = (
+				02C84CB92D6CD494004EAB9A /* Repository */,
+				022677292C52645800F2190E /* Services */,
+				022677282C52644C00F2190E /* ViewModel */,
+				022677272C52643C00F2190E /* View */,
+				0288E3122C50C83D00B6B721 /* Model */,
+			);
+			path = "Profile Listing";
+			sourceTree = "<group>";
+		};
+		024D68E72D702A3A00C95021 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				02F108002C50F9A700509F6C /* Constant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		0288E2F32C50C46100B6B721 = {
 			isa = PBXGroup;
 			children = (
@@ -110,16 +162,12 @@
 		0288E2FE2C50C46100B6B721 /* Shaadi.com */ = {
 			isa = PBXGroup;
 			children = (
-				02C84CB92D6CD494004EAB9A /* Repository */,
-				022677292C52645800F2190E /* Services */,
-				022677282C52644C00F2190E /* ViewModel */,
-				022677272C52643C00F2190E /* View */,
-				0288E3122C50C83D00B6B721 /* Model */,
+				024D68E72D702A3A00C95021 /* Constants */,
+				024D68E52D702A1800C95021 /* Features */,
 				0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */,
 				0288E3032C50C46200B6B721 /* Assets.xcassets */,
 				0288E30A2C50C46200B6B721 /* Shaadi_com.xcdatamodeld */,
 				0288E3052C50C46200B6B721 /* Preview Content */,
-				02F108002C50F9A700509F6C /* Constant.swift */,
 			);
 			path = Shaadi.com;
 			sourceTree = "<group>";
