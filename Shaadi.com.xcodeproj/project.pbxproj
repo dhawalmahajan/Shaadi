@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0226772C2C52648B00F2190E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0226772B2C52648B00F2190E /* CoreDataManager.swift */; };
+		024D68E92D703C1300C95021 /* APIURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024D68E82D703C1300C95021 /* APIURLBuilder.swift */; };
 		0288E3002C50C46100B6B721 /* Shaadi_comApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */; };
 		0288E3042C50C46200B6B721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0288E3032C50C46200B6B721 /* Assets.xcassets */; };
 		0288E3072C50C46200B6B721 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0288E3062C50C46200B6B721 /* Preview Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0226772B2C52648B00F2190E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		024D68E82D703C1300C95021 /* APIURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURLBuilder.swift; sourceTree = "<group>"; };
 		0288E2FC2C50C46100B6B721 /* Shaadi.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaadi.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0288E2FF2C50C46100B6B721 /* Shaadi_comApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shaadi_comApp.swift; sourceTree = "<group>"; };
 		0288E3032C50C46200B6B721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		022677292C52645800F2190E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				024D68E82D703C1300C95021 /* APIURLBuilder.swift */,
 				02C84CBA2D6CD6D9004EAB9A /* ImageCache.swift */,
 				02C84CB82D6CD485004EAB9A /* Web Service */,
 				0226772A2C52646A00F2190E /* CoreDataMangerService */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024D68E92D703C1300C95021 /* APIURLBuilder.swift in Sources */,
 				02C84CBD2D6CD6FB004EAB9A /* CachedImageLoader.swift in Sources */,
 				02C84CBB2D6CD6D9004EAB9A /* ImageCache.swift in Sources */,
 				02C84CB12D6CC024004EAB9A /* ProfileRepository.swift in Sources */,

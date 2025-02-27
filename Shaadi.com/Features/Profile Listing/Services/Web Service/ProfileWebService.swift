@@ -11,29 +11,22 @@ protocol ProfileServiceProtocol {
     func fetchProfiles(results: Int, page: Int) async -> Result<UserInfo?, Error>
 }
 class ProfileWebService:ProfileServiceProtocol {
-    private let url: String
+    private let urlBuilder: APIURLBuilder
     init(url: String) {
-        self.url = url
+        self.urlBuilder = APIURLBuilder(baseURL: url)
     }
     func fetchProfiles (results: Int, page: Int) async -> Result<UserInfo?,Error>{
-        guard var urlComponents = URLComponents(string: url) else {
-            return .failure(URLError(.badURL))
-        }
-        urlComponents.queryItems = [
-            URLQueryItem(name: "results", value: "\(results)"),
-            URLQueryItem(name: "page", value: "\(page)")
-        ]
-        
-        guard let url = urlComponents.url else {
-            return .failure(URLError(.badURL))
-        }
-        do {
-            let (data,_) = try  await URLSession.shared.data(from: url)
-            let info = try JSONDecoder().decode(UserInfo.self, from: data)
-            
-            return .success(info)
-        } catch let error  {
-            debugPrint(error)
+        let urlResult = urlBuilder.buildURL(results: results, page: page)
+        switch urlResult {
+        case .success(let url):
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let userInfo = try JSONDecoder().decode(UserInfo.self, from: data)
+                return .success(userInfo)
+            } catch {
+                return .failure(error)
+            }
+        case .failure(let error):
             return .failure(error)
         }
         
