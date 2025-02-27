@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ProfileListView: View {
     @StateObject private var viewModel = ProfileViewModel()
-
     var body: some View {
         NavigationView {
             ScrollView {
@@ -13,21 +12,7 @@ struct ProfileListView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
 
-                    LazyVStack {
-                        ForEach(viewModel.profiles.indices, id: \.self) { index in
-                            if index < viewModel.profiles.count {
-                                let profile = viewModel.profiles[index]
-                                ProfileCardView(profile: profile, viewModel: viewModel)
-                                    .onAppear {
-                                        if index == viewModel.profiles.count - 1 {
-                                            Task {
-                                                await viewModel.fetchProfilesFromAPI()
-                                            }
-                                        }
-                                    }
-                            }
-                        }
-                    }
+                    CardView()
                 }
                 .padding()
             }
@@ -49,5 +34,23 @@ struct ProfileListView: View {
             }
         }
     }
+    private func CardView() -> some View {
+        return LazyVStack {
+            ForEach(viewModel.profiles.indices, id: \.self) { index in
+                if index < viewModel.profiles.count {
+                    let profile = viewModel.profiles[index]
+                    ProfileCardView(profile: profile, viewModel: viewModel)
+                        .onAppear {
+                            if index == viewModel.profiles.count - 1 {
+                                Task {
+                                    await viewModel.fetchProfilesFromAPI()
+                                }
+                            }
+                        }
+                }
+            }
+        }
+    }
+    
 }
 
